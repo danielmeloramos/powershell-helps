@@ -15,7 +15,6 @@ Write-Host $db.CreateDate
 
 #tabela - criar
 $batches = $Script -split "GO\r\n"
-
 $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
 $SqlConnection.ConnectionString = "Server = $Server; Database = $sqlDBName; Integrated Security = True"
 $SqlConnection.Open()
@@ -46,7 +45,5 @@ $DatabaseName = "banco"
 $DBObject = $Server.Databases[$DatabaseName]
 if ($DBObject)
 {
-    #instead of drop we will use KillDatabase
-    #KillDatabase drops all active connections before dropping the database.
     $Server.KillDatabase($DatabaseName)
 }
