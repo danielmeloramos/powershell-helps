@@ -21,8 +21,8 @@ $SqlConnection.Open()
 
 foreach($batch in $batches)
 {
-    if ($batch.Trim() -ne ""){
-
+    if ($batch.Trim() -ne "")
+    {
         $SqlCmd = New-Object System.Data.SqlClient.SqlCommand
         $SqlCmd.CommandText = $batch
         $SqlCmd.Connection = $SqlConnection
@@ -33,7 +33,10 @@ $SqlConnection.Close()
 
 #Chave de registro - Add
 $Key = "HKEY_CURRENT_USER\TEST"
-If  ( -Not ( Test-Path "Registry::$Key")){New-Item -Path "Registry::$Key" -ItemType RegistryKey -Force}
+If ( -Not ( Test-Path "Registry::$Key")) 
+{ 
+    New-Item -Path "Registry::$Key" -ItemType RegistryKey -Force
+}
 Set-ItemProperty -path "Registry::$Key" -Name "Less" -Type "String" -Value "Less"
 
 #Chave de registro - Remove
