@@ -33,7 +33,7 @@ $SqlConnection.Close()
 
 #Chave de registro - Add
 $Key = "HKEY_CURRENT_USER\TEST"
-If ( -Not ( Test-Path "Registry::$Key")) 
+if (-Not(Test-Path "Registry::$Key")) 
 { 
     New-Item -Path "Registry::$Key" -ItemType RegistryKey -Force
 }
